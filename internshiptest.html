@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        #counter-red {
+            width: fit-content;
+            height: fit-content;
+            border: solid;
+            text-align: center;
+            display: inline-block;
+        }
+
+        #red-button {
+            padding: 42px;
+            background-color: red;
+            border: none;
+            cursor: pointer;
+        }
+
+
+        #counter-green {
+            width: fit-content;
+            height: fit-content;
+            border: solid;
+            text-align: center;
+            display: inline-block;
+        }
+
+        #green-button {
+            padding: 42px;
+            background-color: green;
+            border: none;
+            cursor: pointer;
+        }
+
+        #output {
+            
+            width: fit-content;
+            height: fit-content;
+            display: flex;
+            justify-content: space-evenly;
+            margin: auto;
+            margin-top: 20px;
+        }
+
+        #redoutput {
+            
+            width: fit-content;
+            height: fit-content;
+            margin: auto;
+            
+        }
+
+        #greenoutput {
+            
+            width: fit-content;
+            height: fit-content;
+            display: inline-block;
+        }
+
+        #box {
+            width: 70px;
+            height: 70px;
+            border: solid;
+            
+        }
+
+        .myButton{
+            cursor: pointer;
+        }
+
+    
+    </style>
+</head>
+
+<body>
+
+    <div id="counter-red">
+        <h3>Counter Red</h3>
+        <h1 id="counter">0</h1>
+    </div>
+
+    <button id="red-button" onclick="redButtonClick()">Red</button>
+
+    <button id="green-button" onclick="greenButtonClick()">Green</button>
+    <div id="counter-green">
+        <h3>Counter Green</h3>
+        <h1 id="counter2">0</h1>
+    </div>
+
+    <div id="output">
+        <div id="redoutput"></div>
+        <div id="greenoutput"></div>
+    </div>
+
+    <script>
+        let arrayRed = []
+        function redButtonClick() {
+            let buttonText = document.getElementById('red-button')
+            let div = document.createElement('div');
+            let deleteButton = document.createElement('button');
+            deleteButton.className = "myButton";
+            deleteButton.innerHTML = 'Delete';
+            deleteButton.onclick=()=>{
+                event.target.parentNode.remove();
+                arrayRed.splice(0,1);
+                counter.innerHTML = arrayRed.length;
+            }
+            div.id = "box";
+            div.style.backgroundColor = buttonText.innerHTML
+            arrayRed.push(buttonText.innerHTML);
+            counter.innerHTML = arrayRed.length;
+            redoutput.appendChild(div)
+            div.appendChild(deleteButton)
+            
+        }
+        
+        let arrayGreen = []
+        
+        function greenButtonClick() {
+            let buttonText = document.getElementById('green-button');
+            let div = document.createElement('div');
+            let deleteButton = document.createElement('button');
+            deleteButton.className = "myButton";
+            deleteButton.innerHTML = 'Delete';
+            deleteButton.onclick=(event)=>{
+                event.target.parentNode.remove();
+                arrayGreen.splice(0,1);
+                counter2.innerHTML = arrayGreen.length;
+
+            }
+            div.id = "box";
+            div.style.backgroundColor = buttonText.innerHTML
+            arrayGreen.push(buttonText.innerHTML);
+            counter2.innerHTML = arrayGreen.length;
+            greenoutput.appendChild(div)
+            div.appendChild(deleteButton)
+
+        }
+    </script>
+
+</body>
+
+</html>
